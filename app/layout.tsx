@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./Components/NavBar";
 import { ThemeProvider } from "@/components/theme-provider";
+import CartProvider from "./Providers";
+import ShoppingCartModal from "./ShoppingCartModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,15 +21,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {/* nav bar for large screen  */}
-          <NavBar/>
-          {children}
+        <ThemeProvider attribute="class" defaultTheme="system">
+          {/* cart provider for chopping cart and stripe prosses */}
+          <CartProvider>
+            {/* nav bar for large screen  */}
+            <NavBar />
+            {/* test shoppig cart model */}
+            <ShoppingCartModal />
+            {children}
+          </CartProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import ThemeToggler from "./ThemeToggler";
 import { ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useShoppingCart } from "use-shopping-cart";
 
 // list of links
 const links = [
@@ -30,15 +31,18 @@ export default function NavBar() {
     // check active link 
     const pathName=usePathname();
 
+    // hook from useshoppingcart to open sheet cart 
+    const {handleCartClick}=useShoppingCart()
+
 
   return (
     <header className=" mb-8 border-b py-5 ">
       <div className="flex items-center justify-between Section">
         {/* logo */}
-        <Link href={"/"}>
-          <h1 className="text-2xl md:text-4xl  font-bold">
+        <Link href={"/"} >
+          <span className="text-2xl md:text-4xl  font-bold">
             My<span className="text-primary">Shops</span>
-          </h1>
+          </span>
         </Link>
         {/* nav links */}
         <nav className="hidden lg:flex gap-12 ">
@@ -53,7 +57,9 @@ export default function NavBar() {
             {/* dark mode button  */}
                 <ThemeToggler/>
             {/* cart button  */}
-        <Button type="button" variant={'ghost'} size={'icon'} className="hover:text-primary hover:bg-transparent">
+        <Button 
+        onClick={()=>handleCartClick()}
+        type="button" variant={'ghost'} size={'icon'} className="hover:text-primary hover:bg-transparent">
             <ShoppingBag/>
         </Button>
             

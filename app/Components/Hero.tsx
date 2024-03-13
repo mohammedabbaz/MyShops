@@ -5,7 +5,7 @@ import Link from "next/link";
 
 // fetsh data from sanity (get session image )
 async function fetsHeroImage() {
-  const query = "*[_type =='sessionPicture'][0]";
+  const query = "*[_type =='sessionPicture']";
   const data = await client.fetch(query);
   return data;
 }
@@ -16,9 +16,9 @@ export default async function Hero() {
   // get images using urlfor
 
   return (
-    <section className=" Section flex flex-col ">
+    <section className=" Section  flex flex-col  ">
       {/* hero */}
-      <div className=" flex flex-col md:flex-row items-center justify-center gap-8 mb-10 ">
+      <div className=" flex flex-col md:flex-row items-center justify-center gap-8 mb-16 ">
         {/* left  */}
         <div className="md:w-1/3 w-full  flex flex-col justify-center items-start space-y-4  ">
           {/* title */}
@@ -40,19 +40,19 @@ export default async function Hero() {
 
         <div className="md:w-2/3 w-full flex  items-center justify-center  ">
           <div className=" z-10 relative top-12 left-12 -ml-12 lg:ml-0 overflow-hidden rounded-lg shadow-lg ">
-            <img
-              src={urlFor(data.firstImage).url()}
+            <Image
+              src={urlFor(data[0].secondImage).url()}
               alt="Hero image"
-              className=" h-2/4 object-cover object-center  "
+              className=" md:h-[30rem]  h-72   object-cover object-center  "
               width={500}
               height={500}
             />
           </div>
-          <div className="overflow-hidden rounded-lg shadow-lg h-2/4">
-            <img
-              src={urlFor(data.secondImage).url()}
+          <div className="overflow-hidden rounded-lg shadow-lg ">
+            <Image
+              src={urlFor(data[0].firstImage).url()}
               alt="Hero image"
-              className=" h-2/4 object-cover object-center  "
+              className="md:h-[30rem]  h-72    object-cover object-center  "
               width={500}
               height={500}
             />

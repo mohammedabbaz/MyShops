@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.10",
+    "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
     "@sanity/client": "^6.15.3",
     "@sanity/image-url": "^1.0.2",
@@ -26,7 +27,8 @@
     "sanity": "^3.32.0",
     "styled-components": "^6.1.8",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "use-shopping-cart": "^3.2.0"
   },
   "devDependencies": {
     "@types/node": "^20",

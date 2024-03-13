@@ -42,6 +42,14 @@ export const Product = defineType({
       
     ),
     defineField({
+      title: "stripe product price id",
+      name: "price_id",
+      type: "string",
+      
+    }
+    
+  ),
+    defineField({
         title: "slogs",
         name: "slogs",
         type: "slug",

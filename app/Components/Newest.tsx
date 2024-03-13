@@ -24,10 +24,10 @@ export default async function Newest() {
 
   return (
     <section className="Section">
-      <div className=" w-full flex flex-col my-6 md:my-12 ">
+      <div className=" w-full flex flex-col my-6 md:my-12 lg:my-16 ">
         <div className="flex items-center justify-between ">
           {/* title of section */}
-          <h1 className="text-2xl md:text-4xl font-semibold capitalize tracking-tight">
+          <h1 className="text-xl md:text-2xl font-semibold capitalize tracking-tight">
             Our Newest products
           </h1>
           {/* see all link */}
@@ -60,7 +60,7 @@ export default async function Newest() {
                 <div className=" flex flex-row items-center justify-between ">
                   <h2 className="text-md truncate  ">
 
-                    <Link href={`/products/${product.slug}`}>
+                    <Link href={`/product/${product._id}`}>
                       {product.title}
                     </Link>
                   </h2>
